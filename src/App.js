@@ -28,14 +28,17 @@ export default function App() {
       </div>
 
       <Switch>
+      <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/about">
           <About />
         </Route>
         <Route path="/users">
           <Users />
         </Route>
-        <Route path="/">
-          <Home />
+        <Route path="*">
+          <Error404 />
         </Route>
       </Switch>
 
@@ -49,4 +52,8 @@ function About() {
 
 function Users() {
   return <h2>Users</h2>;
+}
+
+function Error404() {
+  return <h2>Error 404, page not found.</h2>
 }
