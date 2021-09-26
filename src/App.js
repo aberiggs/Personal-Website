@@ -41,7 +41,6 @@ export default function App() {
           <Error404 />
         </Route>
       </Switch>
-
     </Router>
   )
 }
