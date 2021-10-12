@@ -10,6 +10,7 @@ function Navbar() {
                     <li><Link to="/" className="Navbar-home-link">Abe Riggs</Link></li>
                 </ul>
             </div>
+            <div className="Navbar-line"></div>
             <div className="Navbar-main">
                 <ul>
                     <li><Link to="/projects">Projects</Link></li> 
