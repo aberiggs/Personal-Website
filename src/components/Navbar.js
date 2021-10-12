@@ -13,7 +13,7 @@ function Navbar() {
             <div className="Navbar-main">
                 <ul>
                     <li><Link to="/projects">Projects</Link></li> 
-                    <li><Link to="/projects">Test</Link></li> 
+                    <li><Link to="/contact">Contact Me</Link></li> 
                 </ul>
             </div>     
         </div>
