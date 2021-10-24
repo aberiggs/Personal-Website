@@ -2,39 +2,54 @@ import styled from 'styled-components';
 
 import "./Home.css"
 
-import Portrait from "./SprocketPic.jpg"
 import { RiGithubFill } from 'react-icons/ri';
 import { IoLogoLinkedin } from 'react-icons/io';
+import { MdOutlineContactPage } from 'react-icons/md';
 
 const Button = styled.a` 
+  @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
   display: flex;
+  flex-direction: row;
   border-radius: 15px;
-  padding: 0.25rem .5rem;
-  margin: 0.5rem 1rem;
+  padding: 0.25rem .8rem;
+  margin: 0 2rem;
   width: auto;
+  font-size: 3vmin;
+  white-space: nowrap;  
+  font-family: 'Dosis', sans-serif;
+  color: #494949;
+  border: 4px solid #494949;
   background: transparent;
-  font-size: 2vmin;
-  color: #FAF6E9;
-  background-color: #494949;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+
+  ${this}:hover {
+    background-color: #FAF6E9;
+  }
 `;
 
 function Home() {
   return (
     <div className="Home">
-      <img className="Home-portrait" src={Portrait} alt="Portrait"></img>
-      <h1 className="Home-name">
-        Abe Riggs IV
-      </h1>
-      <h2 className="Home-about">
-        Student, Software Developer, Keyboard Enthusiast, Musician
-      </h2>
-      <div className="Home-buttons">
-        <Button href="https://github.com/aberiggs" target="_blank"><RiGithubFill className="Home-logos"/>Github</Button>
-        <Button href="https://www.linkedin.com/in/abe-riggs-iv-826493187/" target="_blank"><IoLogoLinkedin className="Home-logos"/>LinkedIn</Button>
-      </div>
+      <section className="Home-section">
+        <div className="Home-main">
+          <h1 className="Home-name">
+            Abe Riggs IV
+          </h1>
+
+          <h2 className="Home-about">
+            Student, Software Developer, Mechanical Keyboard Enthusiast
+          </h2>
+
+          <div className="Home-buttons">
+            <Button href="https://github.com/aberiggs" target="_blank"><RiGithubFill className="Home-logos"/>GitHub</Button>
+            <Button href="https://www.linkedin.com/in/abe-riggs-iv-826493187/" target="_blank"><IoLogoLinkedin className="Home-logos"/>LinkedIn</Button>
+            <Button href="" target="_blank"><MdOutlineContactPage className="Home-logos" />Contact</Button>
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 }

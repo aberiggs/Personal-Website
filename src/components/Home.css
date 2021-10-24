@@ -9,6 +9,14 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+ 
+}
+
+.Home-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .Home-name {
@@ -21,8 +29,10 @@
 
 .Home-about {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 3vmin;
+    font-size: 3.5vmin;
     color: #494949;
+    margin: 2rem 0;
+    text-align: center;
 }
 
 .Home-buttons {
@@ -31,7 +41,7 @@
 }
 
 .Home-logos {
-    color: rgb(255, 255, 255);
+
     width: 2em;
     height: auto;
     margin-right: 10%;

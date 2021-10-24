@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.About {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; 
+    padding: 0;
+}
+
+.About-left {
+    display: flex;
+    flex-direction: column;
+    float: left;
+
+    width: 50%;
+    background-color: #D3E4CD;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.About-left h1 {
+    color: #FEF5ED;
+    font-family: 'Rampart One', cursive;
+    font-size: 10vmin;
+    text-align: center;
+
+    margin: 0 0 2rem;
+    
+
+ }
+
+.About-portrait {
+    /* TODO: Fix scaling */
+    max-width: 40vmin;
+
+    border-radius: 40px;
+}
+
+.About-right {
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+    background-color: #ADC2A9;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.About-paragraph {
+    font-size: 3vmin;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    padding: 0 4em;
+}

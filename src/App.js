@@ -5,8 +5,7 @@ import {
   Route
 } from "react-router-dom";
 
-import Home from "./components/Home.js";
-import Projects from "./components/Projects.js";
+import FrontPage from "./components/FrontPage.js";
 import Contact from "./components/Contact.js"
 
 export default function App() {
@@ -15,11 +14,7 @@ export default function App() {
       <Switch>
 
         <Route exact path="/">
-            <Home />
-          </Route>
-
-          <Route path="/projects">
-            <Projects />
+            <FrontPage />
           </Route>
 
           <Route path="/contact">
