@@ -1,0 +1,12 @@
+.die {
+    max-height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.Contact-modal {
+    height: 100vh;
+    width: 20vw;
+    background-color: red;
+    position: absolute;
+}
