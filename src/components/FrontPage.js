@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Home from "./Home.js";
 import About from "./About.js";
 
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { UserContext } from "./UserContext";
 
 import "./FrontPage.css";
@@ -34,6 +34,12 @@ const Button = styled.a`
 
 //TODO: Smooth scroll?
 
+const PrimaryDiv = styled.div `
+    max-height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+
+`;
 
 const SnappingDiv = styled.div`
     //TODO: Customize snapping div?
@@ -41,6 +47,13 @@ const SnappingDiv = styled.div`
 `;
 
 function FrontPage() {
+    const [renderWhole, setRenderWhole] = useState(true);
+
+    const dontRender = () => setRenderWhole(false);
+
+    const doRender = () => setRenderWhole(true);
+
+
     const user = useContext(UserContext);
 
     const handleClose = () => user.setShowModal(false);
@@ -53,40 +66,33 @@ function FrontPage() {
           );
          
         }
-
-        /*
-        var PrimaryDiv = styled.div`
-            max-height: 100vh;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            
-        `;
-        */
         
+        // TODO: Make it so I'm not forced to stop rendering the rest of the page.
         useEffect(() => { 
             if(user.showModal) {
-                document.getElementById("test").scrollTop = 0;
-                document.getElementById("test").style.overflowY = 'hidden';
-                document.getElementById("test").scrollTop = 0;
-                
+                dontRender();
+                document.getElementById("primary").style.overflowY = "hidden";
             } else { 
-                document.getElementById("test").style.overflowY = 'scroll';
-                
+                doRender();
+                document.getElementById("primary").style.overflowY = "scroll";
              }
              }, [user.showModal]);
       
 
     return(
-        <div id="test" className="die">
-            <SnappingDiv >
+        <PrimaryDiv id="primary">
+            <SnappingDiv>
                 { user.showModal ? <Modal /> : null }
                 <Home />
             </SnappingDiv>
             
-            <SnappingDiv>
-                <About  />
-            </SnappingDiv>
-        </div>
+            { renderWhole ? 
+                <SnappingDiv>
+                <About />
+                </SnappingDiv> : null }
+            
+          
+        </PrimaryDiv>
     );
     
    /*
