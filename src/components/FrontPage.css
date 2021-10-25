@@ -1,7 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 .Contact-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
     height: 100vh;
-    width: 20vw;
-    background-color: red;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.74);
     position: absolute;
+}
+
+.Contact-outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 30vmin;
+    width: 40vmin;
+    left: -48%;
+    top:-48%;
+}
+
+
+.Contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    background-color: #ECE8D9;
+    border-radius: 10px;
+    border: .3vmin solid #494949;
+
+    height: 30vmin;
+    width: 40vmin;
+}
+
+.Contact-form h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5vmin;
+    color: #494949;
+
+    margin: 0;
+}
+
+.Contact-form h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2vmin;
+    color: #494949;
+
+    margin: 0;
 }

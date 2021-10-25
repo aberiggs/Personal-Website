@@ -3,26 +3,26 @@ import styled from 'styled-components';
 import Home from "./Home.js";
 import About from "./About.js";
 
+import { MdOutlineClose } from "react-icons/md";
+
 import { useEffect, useContext, useState } from 'react';
 import { UserContext } from "./UserContext";
 
 import "./FrontPage.css";
-import { getElementError } from '@testing-library/dom';
 
 const Button = styled.a` 
   @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
   display: flex;
   flex-direction: row;
-  border-radius: 15px;
-  padding: 0.25rem .8rem;
-  margin: 0 2rem;
+  border-radius: 100%;
+  padding: 0rem 0rem;
   width: auto;
   font-size: 3vmin;
   white-space: nowrap;  
   font-family: 'Dosis', sans-serif;
   color: #494949;
-  border: 4px solid #494949;
-  background: transparent;
+  border: .3vmin solid #494949;
+  background: #f76464;
   justify-content: center;
   align-items: center;
   text-decoration: none;
@@ -59,9 +59,19 @@ function FrontPage() {
     const handleClose = () => user.setShowModal(false);
 
     const Modal = () => {
+        // TODO: Make className values less confusing.
         return(
-            <div className="Contact-modal">
-              <Button onClick={handleClose}>god help me</Button>
+            <div onClick={handleClose} className="Contact-modal">
+                <div className="Contact-form">
+                    <div className="Contact-outer">
+                        
+                        <Button onClick={handleClose}><MdOutlineClose /></Button>
+                        
+                    </div>
+                    <h1>Email</h1>
+                    <h2>riggs22@purdue.edu</h2>
+                </div>
+                
             </div>
           );
          
@@ -71,10 +81,8 @@ function FrontPage() {
         useEffect(() => { 
             if(user.showModal) {
                 dontRender();
-                document.getElementById("primary").style.overflowY = "hidden";
             } else { 
-                doRender();
-                document.getElementById("primary").style.overflowY = "scroll";
+                doRender(); 
              }
              }, [user.showModal]);
       
@@ -94,12 +102,6 @@ function FrontPage() {
           
         </PrimaryDiv>
     );
-    
-   /*
-   return(
-    <Home />
-   );
-   */
     
 }
 
