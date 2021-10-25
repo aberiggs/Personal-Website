@@ -4,8 +4,9 @@ import "./About.css"
 
 const AboutParagraph = () => {
     return (
+        // TODO: Make better intro paragraph.
         <p className="About-paragraph">
-            Hi! I'm Abe Riggs IV, but most people know me as Sprocket. I'm a Computer Science freshman at Purdue University and an aspiring software engineer. Ever since I was little I've been enfatuated with technology, and wanted to build things of my own.
+            Hi! I'm Abe Riggs IV, but I usually go by the name Sprocket. I'm an aspiring software engineer studying Computer Science at Purdue University. Ever since I was a little kid I've loved video games, and I have always dreamt of being able to create things that brought people that same joy. I'm constantly working hard to try and learn new things, from software and web development, to cybersecurity (<a href="https://b01lers.net/" target="_blank" rel="noreferrer">b01lers CTF Club @ Purdue</a>) and music to name a few. 
         </p>
     );
 } 

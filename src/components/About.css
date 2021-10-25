@@ -26,6 +26,7 @@
     font-size: 10vmin;
     text-align: center;
 
+    padding: 0 4vw;
     margin: 0 0 2rem;
     
 
@@ -53,5 +54,14 @@
     font-size: 3vmin;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
-    padding: 0 4em;
+    padding: 0 8vw;
+}
+
+.About-paragraph a {
+    text-decoration: none;
+    color:#d9e0d6;
+}
+
+.About-paragraph a:hover {
+    color: #FEF5ED;
 }

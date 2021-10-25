@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
 
+
 .Home {
     display: flex;
     flex-direction: column;
@@ -45,4 +46,10 @@
     width: 2em;
     height: auto;
     margin-right: 10%;
+}
+
+.Contact-modal {
+    height: 100vh;
+    background-color: transparent;
+    top: 30%;
 }
