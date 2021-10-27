@@ -1,4 +1,4 @@
-import Portrait from "./SprocketPic.jpg"
+import Portrait from "./images/SprocketPic.jpg"
 
 import "./About.css"
 

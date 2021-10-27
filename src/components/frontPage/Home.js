@@ -27,6 +27,7 @@ const Button = styled.a`
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  cursor: pointer;
 
   ${this}:hover {
     background-color: #FAF6E9;

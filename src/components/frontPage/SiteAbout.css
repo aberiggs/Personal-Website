@@ -1,0 +1,82 @@
+.SiteAbout {
+    display: flex;
+    flex-direction: row;
+     height: auto;
+}
+
+.SiteAbout-left, .SiteAbout-right {
+    padding: 5vmin 0;
+}
+
+.SiteAbout-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: #9FD8DF;
+
+    width: 50%;
+}
+
+.SiteAbout-left h1 {
+    color: #FEF5ED;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4vmin;
+    text-align: center;
+    padding: .3vw 5vw;
+    margin: 0;
+}
+
+.SiteAbout-paragraph {
+    font-size: 2.75vmin;
+    font-family: 'Quicksand', sans-serif;
+    color: #FEF5ED;
+    text-align: center;
+    padding: 0 5vw;
+}
+
+.SiteAbout-paragraph a {
+    text-decoration: none;
+    color:#494949;
+}
+
+.SiteAbout-paragraph a:hover {
+    color: #FEF5ED;
+}
+
+
+.SiteAbout-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: #badee2;
+
+    width: 50%;
+}
+
+.SiteAbout-right h1 {
+    color: #FEF5ED;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9vmin;
+    text-align: center;
+
+    padding: 0 5vw;
+    margin: 0 0 2rem;
+    
+
+ }
+
+ .SiteAbout-node-logo {
+     width: 40vmin;
+     height: auto;
+ }
+ 
+ .SiteAbout-react-logo {
+     width: 50vmin;
+     height: auto;
+ }
