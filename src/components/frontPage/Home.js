@@ -49,7 +49,7 @@ function Home() {
           </h1>
 
           <h2 className="Home-about">
-            Student, Software Developer, Mechanical Keyboard Enthusiast
+            Student, Software Developer, Mechanical Keyboard Enthusiast, Musician
           </h2>
 
           <div className="Home-buttons">
