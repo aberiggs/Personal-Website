@@ -5,8 +5,9 @@ import {
   Route
 } from "react-router-dom";
 
+import { UserProvider } from "./components/frontPage/UserContext";
+
 import FrontPage from "./components/FrontPage.js";
-import Contact from "./components/Contact.js"
 
 export default function App() {
   return (
@@ -14,11 +15,9 @@ export default function App() {
       <Switch>
 
         <Route exact path="/">
+          <UserProvider>
             <FrontPage />
-          </Route>
-
-          <Route path="/contact">
-            <Contact />
+          </UserProvider>
           </Route>
 
           <Route path="*">
