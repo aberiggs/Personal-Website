@@ -2,23 +2,16 @@ import styled from 'styled-components';
 
 import { MdOutlineClose } from "react-icons/md";
 
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useContext } from 'react';
 import { UserContext } from "./frontPage/UserContext";
-// import ScrollSnap from 'scroll-snap';
-import ReactDOM from 'react-dom';
 
 import Home from "./frontPage/Home.js";
 import About from "./frontPage/About.js";
-import SiteAbout from "./frontPage/SiteAbout.js"
+import SiteAbout from "./frontPage/SiteAbout.js";
+import Skills from "./frontPage/Skills.js";
 
 import "./FrontPage.css";
-import { createRef } from 'react';
-import React from 'react';
-
-  
-  function callback() {
-    console.log('element snapped')
-  }
+import Bottom from './frontPage/Bottom';
 
 const Button = styled.a` 
   @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
@@ -49,17 +42,17 @@ const Button = styled.a`
 // TODO: Better snapping scroll?
 const PrimaryDiv = styled.div `
     max-height: 100vh;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    
 
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-margin: 100vh;
+    scroll-padding-bottom: 1px;
+    scroll-behavior: smooth;
 `;
 
 const SnappingDiv = styled.div`
     // TODO: Customize snapping div?
     scroll-snap-align: start;
-    scroll-behavior: smooth;
 `;
 
 
@@ -82,7 +75,7 @@ function FrontPage() {
                         <Button onClick={handleClose}><MdOutlineClose /></Button>
                         
                     </div>
-                    <h1>Purdue Email</h1>
+                    <h1>School Email</h1>
                     <h2>riggs22@purdue.edu</h2>
                     <div className="Contact-divider"></div>
                     <h1>Personal Email</h1>
@@ -97,8 +90,9 @@ function FrontPage() {
     // TODO: Make it so I'm not forced to stop rendering the rest of the page.
     useEffect(() => { 
         if(user.showModal) {
-            document.documentElement.scrollTop = 0;
+            // TODO: Make it so if you click the contact button it doesn't keep scrolling.
             document.documentElement.style.overflow = "hidden";
+
         } else { 
             document.documentElement.style.overflow = "unset";
             }
@@ -110,14 +104,15 @@ function FrontPage() {
     return(
         <PrimaryDiv>
             { user.showModal ? <Modal /> : null }
-            <SnappingDiv>
+            <div>
                 <Home />
-            </SnappingDiv>
-            
-            <SnappingDiv>
+
                 <About />
                 <SiteAbout />
-            </SnappingDiv>
+                
+                <Bottom />
+            </div>
+            
         </PrimaryDiv>
 
 

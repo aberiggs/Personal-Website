@@ -14,7 +14,7 @@ const Button = styled.a`
   @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
   display: flex;
   flex-direction: row;
-  border-radius: 15px;
+  border-radius: 2vmin;
   padding: 0.25rem .8rem;
   margin: 0 2rem;
   width: auto;
@@ -22,7 +22,7 @@ const Button = styled.a`
   white-space: nowrap;  
   font-family: 'Dosis', sans-serif;
   color: #494949;
-  border: 4px solid #494949;
+  border: .4vmin solid #494949;
   background: transparent;
   justify-content: center;
   align-items: center;
