@@ -8,6 +8,7 @@ import "./Home.css"
 import { RiGithubFill } from 'react-icons/ri';
 import { IoLogoLinkedin } from 'react-icons/io';
 import { MdOutlineContactPage } from 'react-icons/md';
+import { FaDev } from 'react-icons/fa';
 
 
 const Button = styled.a` 
@@ -49,13 +50,13 @@ function Home() {
           </h1>
 
           <h2 className="Home-about">
-            Student, Software Developer, Mechanical Keyboard Enthusiast, Musician
+            Student, Software Developer, Musician
           </h2>
-
           <div className="Home-buttons">
             <Button href="https://github.com/aberiggs" target="_blank"><RiGithubFill className="Home-logos"/>GitHub</Button>
             <Button href="https://www.linkedin.com/in/abe-riggs-iv-826493187/" target="_blank"><IoLogoLinkedin className="Home-logos"/>LinkedIn</Button>
-            <Button onClick={handleShow} test="cringe" target="_blank"><MdOutlineContactPage className="Home-logos" />Contact</Button>
+            <Button /*TODO: fix the "test" value name */ onClick={handleShow} test="cringe" target="_blank"><MdOutlineContactPage className="Home-logos" />Contact</Button>
+            <Button href="/test"><FaDev className="Home-logos" />DevBlog</Button>
           </div>
         </div>
       </section>
