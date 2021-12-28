@@ -1,12 +1,11 @@
 import Signup from './dashboard/Signup'
+import Navbar from './dashboard/Navbar'
 
 function Dashboard() {
 
     return (
         <div>
-            <h1>
-                Hi :)
-            </h1>
+            <Navbar />
             <Signup />
         </div>
 

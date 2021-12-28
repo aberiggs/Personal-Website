@@ -71,8 +71,19 @@ class Signup extends Component {
         const { username, password } = this.state
         const payload = { username, password }
 
+        api.checkUserExistenceByUsername(username).then( () => {
+            window.alert(`Account not created, nice try ;)`)
+        }).catch(res => {
+            if (res.response.status === 404) {
+                this.createUser(payload)
+            }
+        })
+
+    }
+
+    createUser = async payload => {
         await api.createUser(payload).then(res => {
-            window.alert(`User inserted successfully`)
+            window.alert(`Account created successfully`)
             this.setState({
                 username: '',
                 password: '',
@@ -85,7 +96,7 @@ class Signup extends Component {
             window.alert('A user with that username exists!')
         }).catch(res => {
             if (res.response.status === 404) {
-                window.alert('A user with that username doesn\'t exist yet!')
+                window.alert(`A user with that username doesn't exist yet!`)
             }
         })
 
