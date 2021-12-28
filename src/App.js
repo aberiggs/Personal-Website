@@ -1,7 +1,7 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from "react-router-dom";
 
@@ -13,23 +13,13 @@ import Dashboard from "./components/Dashboard.js";
 export default function App() {
   return (
     <Router>
-      <Switch>
+      <Routes>
 
-        <Route exact path="/">
-          <UserProvider>
-            <FrontPage />
-          </UserProvider>
-        </Route>
+        <Route exact path="/" element={<UserProvider><FrontPage /></UserProvider>} />
+        <Route path="/test" element={<Dashboard/>} />
+        <Route path="*" element={<Error404 />} />
 
-        <Route path="/test">
-          <Dashboard />
-        </Route>
-
-        <Route path="*">
-          <Error404 />
-        </Route>
-
-      </Switch>
+      </Routes>
     </Router>
   )
 }
