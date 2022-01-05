@@ -35,7 +35,7 @@ const CancelButton = styled.a.attrs({
     margin: 15px 15px 15px 5px;
 `
 
-class Signup extends Component {
+class Login extends Component {
     constructor(props) {
         super(props)
 
@@ -46,51 +46,14 @@ class Signup extends Component {
         }
     }
 
-    // TODO: Fix serverside 404 error so that it does not spam console.
     handleChangeInputUsername = async event => {
         const username = event.target.value
         this.setState({ username })
-
-        if (document.getElementById("create-account-button") != null) {
-            await api.checkUserExistenceByUsername(username).then( () => {
-                document.getElementById("create-account-button").disabled = true;
-            }).catch(res => {
-                if (res.response.status === 404) {
-                    document.getElementById("create-account-button").disabled = false;
-                }
-            })
-        }
     }
 
     handleChangeInputPassword = async event => {
         const password = event.target.value
         this.setState({ password })
-    }
-
-    handleCreateUser = async () => {
-        const { username, password } = this.state
-        const payload = { username, password }
-
-        api.checkUserExistenceByUsername(username).then( () => {
-            window.alert(`Account not created, nice try ;)`)
-        }).catch(res => {
-            if (res.response.status === 404) {
-                this.createUser(payload)
-            }
-        })
-
-    }
-
-    createUser = async payload => {
-        await api.createUser(payload).then(res => {
-            window.alert(`Account created successfully`)
-            this.setState({
-                username: '',
-                password: '',
-            })
-        }).catch(() => {
-            window.alert(`Error trying to create user. Backend is currently down!`)
-        })
     }
 
     handleCheckUser = async () => {
@@ -108,7 +71,7 @@ class Signup extends Component {
         const { username, password } = this.state
         return (
             <Wrapper>
-                <Title>Create User</Title>
+                <Title>Sign-In</Title>
 
                 <Label>Username: </Label>
                 <InputText
@@ -124,11 +87,10 @@ class Signup extends Component {
                     onChange={this.handleChangeInputPassword}
                 />
 
-                <Button id="create-account-button" onClick={this.handleCreateUser}>Add User</Button>
-                <Button onClick={this.handleCheckUser}>Check User</Button>
+                <Button onClick={this.handleCheckUser}>Login</Button>
             </Wrapper>
         )
     }
 }
 
-export default Signup
+export default Login;

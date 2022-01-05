@@ -16,7 +16,7 @@ export default function App() {
       <Routes>
 
         <Route exact path="/" element={<UserProvider><FrontPage /></UserProvider>} />
-        <Route path="/test" element={<Dashboard/>} />
+        <Route path="/test/*" element={<Dashboard/>} />
         <Route path="*" element={<Error404 />} />
 
       </Routes>
