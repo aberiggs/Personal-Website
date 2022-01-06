@@ -2,6 +2,7 @@ import Signup from './dashboard/Signup'
 import Navbar from './dashboard/Navbar'
 import Login from './dashboard/Login'
 import Post from './dashboard/Post'
+import Home from './dashboard/Home'
 
 import {
     Routes,
@@ -17,9 +18,9 @@ function Dashboard() {
 
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Post />} />
+                <Route path="/post/:postName" element={<Post />}/>
+                <Route path="/" element={<Home />} />
                 <Route path="*" element={<Error404 />} />
-            
 
             </Routes>
         </div>
