@@ -48,6 +48,7 @@ function Navbar () {
                 <StyledLink to="">Return</StyledLink>
                 <StyledLink to="signup">Signup</StyledLink>
                 <StyledLink to="login">Login</StyledLink>
+                <StyledLink to="create-post">Create Post</StyledLink>
             </Selections>
         </NavbarDiv>
     );

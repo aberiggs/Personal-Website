@@ -6,6 +6,8 @@ import api from '../../api'
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import MarkdownDisplay from './MarkdownDisplay';
+
 const Background = styled.div`
     display: flex;
     justify-content: center;
@@ -64,6 +66,7 @@ const Post = () => {
         return(
             <Background>
                 <PostDiv>
+                    <MarkdownDisplay postName={params.postName} markdown={markdown} />
                     <PostTitle>{params.postName}</PostTitle>
                     <PostBody>
                         <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />   
