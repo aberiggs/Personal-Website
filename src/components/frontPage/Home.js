@@ -56,7 +56,7 @@ function Home() {
             <Button href="https://github.com/aberiggs" target="_blank"><RiGithubFill className="Home-logos"/>GitHub</Button>
             <Button href="https://www.linkedin.com/in/abe-riggs-iv-826493187/" target="_blank"><IoLogoLinkedin className="Home-logos"/>LinkedIn</Button>
             <Button /*TODO: fix the "test" value name */ onClick={handleShow} test="cringe" target="_blank"><MdOutlineContactPage className="Home-logos" />Contact</Button>
-            <Button href="/test"><FaDev className="Home-logos" />DevBlog</Button>
+            <Button href="/devblog"><FaDev className="Home-logos" />DevBlog</Button>
           </div>
         </div>
       </section>

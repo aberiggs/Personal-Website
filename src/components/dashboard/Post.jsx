@@ -41,35 +41,42 @@ const PostBody = styled.div`
 const Post = () => {
     const [value] = useState('');
     const [markdown, setMarkdown] = useState("")
+    const [postExists, setPostExists] = useState(false)
 
     const params = useParams()
 
     // TODO: Fix updating twice issue.
     useEffect(() => {
         getMarkdown()
-        console.log("test")
       }, [value]);
 
     const getMarkdown = async () => {
         await api.getMarkdownFromPostName(params.postName).then(res => {
             setMarkdown(String(res.data.fileContent))
+            setPostExists(true)
         }).catch(res => {
-            window.alert("An unexpected error has occurred!")
+            console.log(res)
         })
     }
 
+    
+    if(postExists) {
+        return(
+            <Background>
+                <PostDiv>
+                    <PostTitle>{params.postName}</PostTitle>
+                    <PostBody>
+                        <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />   
+                    </PostBody>
+                    
+                </PostDiv>
+            </Background>
+        )
+    } else {
+        return <h2>Error 404, page not found.</h2>
+    }
 
-    return(
-        <Background>
-            <PostDiv>
-                <PostTitle>{params.postName}</PostTitle>
-                <PostBody>
-                    <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />   
-                </PostBody>
-                
-            </PostDiv>
-        </Background>
-    )
+
     
 }
 

@@ -16,9 +16,7 @@ const Home = () => {
 
     const getPosts = async () => {
         await api.getPostNames().then((res) => {
-            
             setPostNames(res.data.postNames)
-            console.log("lol") 
         }).catch(res => {
             window.alert("An unexpected error has occurred!")
         })

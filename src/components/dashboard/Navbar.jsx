@@ -42,7 +42,9 @@ const StyledLink = styled(Link)`
 function Navbar () {
     return (
         <NavbarDiv>
+            
             <Selections>
+                <StyledLink to="../">Home</StyledLink>
                 <StyledLink to="">Return</StyledLink>
                 <StyledLink to="signup">Signup</StyledLink>
                 <StyledLink to="login">Login</StyledLink>
