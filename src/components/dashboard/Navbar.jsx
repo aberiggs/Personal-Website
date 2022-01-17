@@ -30,9 +30,7 @@ const StyledLink = styled(Link)`
     color: black;
     text-decoration: none;
     font-size: 3vmin;
-    padding: .5em 2vw;
-    
-    
+    padding: .5em 2vw;    
 
     &:hover {
         background-color: grey;
@@ -42,12 +40,10 @@ const StyledLink = styled(Link)`
 function Navbar () {
     return (
         <NavbarDiv>
-            
             <Selections>
                 <StyledLink to="../">Home</StyledLink>
                 <StyledLink to="">Return</StyledLink>
-                <StyledLink to="signup">Signup</StyledLink>
-                <StyledLink to="login">Login</StyledLink>
+                <StyledLink to="login">Log In</StyledLink>
                 <StyledLink to="create-post">Create Post</StyledLink>
             </Selections>
         </NavbarDiv>

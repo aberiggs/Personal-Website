@@ -29,12 +29,6 @@ const Button = styled.button.attrs({
     margin: 15px 15px 15px 5px;
 `
 
-const CancelButton = styled.a.attrs({
-    className: `btn btn-danger`,
-})`
-    margin: 15px 15px 15px 5px;
-`
-
 class Signup extends Component {
     constructor(props) {
         super(props)
@@ -108,7 +102,7 @@ class Signup extends Component {
         const { username, password } = this.state
         return (
             <Wrapper>
-                <Title>Create User</Title>
+                <Title>Create Account</Title>
 
                 <Label>Username: </Label>
                 <InputText
@@ -125,7 +119,6 @@ class Signup extends Component {
                 />
 
                 <Button id="create-account-button" onClick={this.handleCreateUser}>Add User</Button>
-                <Button onClick={this.handleCheckUser}>Check User</Button>
             </Wrapper>
         )
     }

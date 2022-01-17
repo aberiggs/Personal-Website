@@ -3,6 +3,8 @@ import api from '../../api'
 
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom'
+
 const Title = styled.h1.attrs({
     className: 'h1',
 })``
@@ -29,11 +31,13 @@ const Button = styled.button.attrs({
     margin: 15px 15px 15px 5px;
 `
 
-const CancelButton = styled.a.attrs({
-    className: `btn btn-danger`,
-})`
-    margin: 15px 15px 15px 5px;
+const StyledLink = styled(Link)`
+    color: #40a2f1;
+    &:hover {
+        color: black;
+    }
 `
+
 
 class Login extends Component {
     constructor(props) {
@@ -71,7 +75,7 @@ class Login extends Component {
         const { username, password } = this.state
         return (
             <Wrapper>
-                <Title>Sign-In</Title>
+                <Title>Log In</Title>
 
                 <Label>Username: </Label>
                 <InputText
@@ -88,6 +92,7 @@ class Login extends Component {
                 />
 
                 <Button onClick={this.handleCheckUser}>Login</Button>
+                <p>Don't have an account? <StyledLink to="../signup">Sign up here!</StyledLink></p>
             </Wrapper>
         )
     }
