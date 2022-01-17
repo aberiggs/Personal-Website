@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import styled from 'styled-components'
 import api from '../../api'
+import { useNavigate } from "react-router-dom";
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -41,43 +42,39 @@ const PostBody = styled.div`
 `
 
 const Post = () => {
+    const navigate = useNavigate();
     const [value] = useState('');
     const [markdown, setMarkdown] = useState("")
-    const [postExists, setPostExists] = useState(false)
+    
 
     const params = useParams()
 
     // TODO: Fix updating twice issue.
     useEffect(() => {
         getMarkdown()
-      }, [value]);
+      }, []);
 
     const getMarkdown = async () => {
         await api.getMarkdownFromPostName(params.postName).then(res => {
             setMarkdown(String(res.data.fileContent))
-            setPostExists(true)
         }).catch(res => {
-            console.log(res)
+            navigate("../*")
         })
     }
 
     
-    if(postExists) {
+    if (markdown !== ""){
         return(
             <Background>
                 <PostDiv>
                     <MarkdownDisplay postName={params.postName} markdown={markdown} />
-                    <PostTitle>{params.postName}</PostTitle>
-                    <PostBody>
-                        <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />   
-                    </PostBody>
-                    
                 </PostDiv>
             </Background>
         )
     } else {
-        return <h2>Error 404, page not found.</h2>
+        return null;
     }
+    
 
 
     

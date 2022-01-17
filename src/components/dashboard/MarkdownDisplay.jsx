@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const MarkdownDisplay = (props) => {
 
-    const PostTitle = styled.h1`
+    const PostTitle = styled.h1`  
         text-decoration: underline;
         font-size: 10vmin;
         margin: 0;
@@ -14,6 +14,7 @@ const MarkdownDisplay = (props) => {
     const PostBody = styled.div`
         font-size: 2vmin;
         width: 100%;
+
     `
 
     return (

@@ -1,17 +1,11 @@
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import styled from 'styled-components'
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
+import api from '../../api'
 
 import PostPreview from './MarkdownDisplay'
 
-const Background = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    background-color: black;
-`
 
 const MainDiv = styled.div`
     display: flex;
@@ -39,17 +33,20 @@ const PostDiv = styled.div`
 `
 
 const MarkdownEditor = props => {
-    const [postName, setPostName] = useState("");
-    const [markdown, setMarkdown] = useState("");
+    const [postName, setPostName] = useState("")
+    const [postSummary, setPostSummary ] = useState("")
+    const [markdown, setMarkdown] = useState("")
 
+    //TODO: Char limit for title and whatnot
     return (
         <MainDiv>
             <EditingSide>
-            <h1>Create Post!</h1>
-            <p>Title:<input type="text" onChange={e => setPostName(e.target.value)}/></p>
-            <textarea onChange={e => setMarkdown(e.target.value)} cols="50" rows="10" />
-            { (props.mode === "create") && <CreatePostButton post={{postName: postName, markdown: markdown}} /> }
-            { (props.mode === "edit") && <EditPostButton post={{postName: postName, markdown: markdown}} /> }
+                <h1>Create Post!</h1>
+                <p>Title:<input type="text" onChange={e => setPostName(e.target.value)}/></p>
+                <textarea onChange={e => setPostSummary(e.target.value)} cols="50" rows="5" />
+                <textarea onChange={e => setMarkdown(e.target.value)} cols="50" rows="10" />
+                { (props.mode === "create") && <CreatePostButton post={{postName: postName, postSummary: postSummary, markdown: markdown}} /> }
+                { (props.mode === "edit") && <EditPostButton post={{postName: postName, postSummary: postSummary, markdown: markdown}} /> }
             </EditingSide>
         
             <PostDiv>
@@ -62,10 +59,21 @@ const MarkdownEditor = props => {
 
 
 const CreatePostButton = props => {
+    const navigate = useNavigate();
     
 
-    const CreatePost = () => {
-        window.alert("Post Title: " + props.post.postName)
+    const CreatePost = async () => {
+        //TODO: Check if post with same same already exists in backend.
+        
+        console.log(props.post)
+        await api.createPost(props.post).then(() => {
+            window.alert("Post created!")
+            navigate("../")
+        }).catch(err => {
+            window.alert(err)
+        })
+        
+
     }
 
     

@@ -6,17 +6,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 const Home = () => {
-    // TODO: Come to understand why this value thingy works
-    const [value] = useState('');
-    const[postNames, setPostNames] = useState([])
+    const[posts, setPosts] = useState([])
 
     useEffect(() => {
         getPosts()
-    }, [value]);
+    }, []);
 
     const getPosts = async () => {
-        await api.getPostNames().then((res) => {
-            setPostNames(res.data.postNames)
+        await api.getPosts().then((res) => {
+            setPosts(res.data.posts)
         }).catch(res => {
             window.alert("An unexpected error has occurred!")
         })
@@ -36,8 +34,8 @@ const Home = () => {
                Posts: 
             </h1>
             <PostList>
-            {postNames.map((item, index) => {
-                return <PostPreview key={index} postName={item} />
+            {posts.map((item, index) => {
+                return <PostPreview key={index} post={item} />
             })}
             </PostList>
             
@@ -47,7 +45,8 @@ const Home = () => {
 }
 
 const PostPreview = (props) => {
-    const postName = props.postName
+    const postName = props.post.postName
+    const postSummary = props.post.postSummary
 
     const PreviewDiv = styled.div`
         display: flex;
@@ -89,7 +88,7 @@ const PostPreview = (props) => {
         <PreviewDiv>
             <Post to={"post/" + postName}>
                 <PostName>{postName}</PostName>
-                <PostSummary>This is a summary of the post above that you may consider reading :)</PostSummary>
+                <PostSummary>{postSummary}</PostSummary>
             </Post>
             
         </PreviewDiv>

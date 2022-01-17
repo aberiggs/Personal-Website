@@ -1,14 +1,15 @@
-import Signup from './dashboard/Signup'
+import {
+    Routes,
+    Route
+  } from "react-router-dom";
+
+
+import Signup from './dashboard/Signup.jsx'
 import Navbar from './dashboard/Navbar'
 import Login from './dashboard/Login'
 import Post from './dashboard/Post'
 import Home from './dashboard/Home'
 import MarkdownEditor from './dashboard/MarkdownEditor'
-
-import {
-    Routes,
-    Route
-  } from "react-router-dom";
 
 function Dashboard() {
 
