@@ -78,12 +78,16 @@ class Signup extends Component {
     createUser = async payload => {
         await api.createUser(payload).then(res => {
             window.alert(`Account created successfully`)
+            console.log(res.data)
+
+            localStorage.setItem("userInfo", JSON.stringify(res.data))
+
             this.setState({
                 username: '',
                 password: '',
             })
-        }).catch(() => {
-            window.alert(`Error trying to create user. Backend is currently down!`)
+        }).catch((error) => {
+            window.alert(error)
         })
     }
 

@@ -60,9 +60,15 @@ class Login extends Component {
         this.setState({ password })
     }
 
-    handleCheckUser = async () => {
-        await api.checkUserExistenceByUsername(this.state.username).then( res => {
-            window.alert('A user with that username exists!')
+    handleLoginUser = async () => {
+        const { username, password } = this.state
+        const payload = { username, password }
+
+        await api.authUser(payload).then( res => {
+            console.log(res.data)
+
+            localStorage.setItem("userInfo", JSON.stringify(res.data))
+
         }).catch(res => {
             if (res.response.status === 404) {
                 window.alert(`A user with that username doesn't exist yet!`)
@@ -91,7 +97,7 @@ class Login extends Component {
                     onChange={this.handleChangeInputPassword}
                 />
 
-                <Button onClick={this.handleCheckUser}>Login</Button>
+                <Button onClick={this.handleLoginUser}>Login</Button>
                 <p>Don't have an account? <StyledLink to="../signup">Sign up here!</StyledLink></p>
             </Wrapper>
         )

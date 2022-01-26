@@ -5,6 +5,7 @@ const api = axios.create({
 })
 
 export const createUser = payload => api.post(`/user`, payload)
+export const authUser = payload => api.post(`/login`, payload)
 export const checkUserExistenceByUsername = username => api.get(`/user/${username}`)
 
 export const getMarkdownFromPostName = postName => api.get(`/post/${postName}`)
@@ -13,6 +14,7 @@ export const createPost = payload => api.post(`/post`, payload)
 
 const apis = {
     createUser,
+    authUser,
     checkUserExistenceByUsername,
     getMarkdownFromPostName,
     getPosts,
