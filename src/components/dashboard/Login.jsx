@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import api from '../../api'
+import JsonWebTokenAuth from '../../api/JsonWebTokenAuth'
 
 import styled from 'styled-components'
 
@@ -64,10 +65,12 @@ class Login extends Component {
         const { username, password } = this.state
         const payload = { username, password }
 
-        await api.authUser(payload).then( res => {
-            console.log(res.data)
-
-            localStorage.setItem("userInfo", JSON.stringify(res.data))
+        await api.loginUser(payload).then( res => {
+            this.setState({
+                username: '',
+                password: '',
+            })
+            localStorage.setItem("token", JSON.stringify(res.data.token))
 
         }).catch(res => {
             if (res.response.status === 404) {
@@ -98,6 +101,7 @@ class Login extends Component {
                 />
 
                 <Button onClick={this.handleLoginUser}>Login</Button>
+                <Button onClick={JsonWebTokenAuth}>Auth Test</Button>
                 <p>Don't have an account? <StyledLink to="../signup">Sign up here!</StyledLink></p>
             </Wrapper>
         )
