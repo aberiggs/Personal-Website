@@ -1,5 +1,4 @@
 import { LOGIN_USER } from "./userTypes";
-import JsonWebTokenAuth from "../../api/JsonWebTokenAuth";
 
 const initialState = {
     username: null,

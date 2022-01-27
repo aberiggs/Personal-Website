@@ -63,14 +63,12 @@ const CreatePostButton = props => {
     
 
     const CreatePost = async () => {
-        //TODO: Check if post with same same already exists in backend.
-        
-        console.log(props.post)
-        await api.createPost(props.post).then(() => {
+        const token = JSON.parse(localStorage.getItem('token'))
+        await api.createPost({...props.post, token}).then(() => {
             window.alert("Post created!")
             navigate("../")
-        }).catch(err => {
-            window.alert(err)
+        }).catch(error => {
+            window.alert(error.response.data.error)
         })
         
 

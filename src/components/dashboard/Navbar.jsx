@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import fetchUserAuth from '../../redux/user/fetchUserAuth'
 
 const NavbarDiv = styled.div`
     display: flex;
@@ -38,12 +39,22 @@ const StyledLink = styled(Link)`
 `
 
 function Navbar () {
+    const dispatch = useDispatch()
+
+    const isLoggedIn = useSelector(state => state.isLoggedIn)
+
+    const logout = () => {
+        localStorage.removeItem('token')
+        dispatch(fetchUserAuth())
+    }
+
     return (
         <NavbarDiv>
             <Selections>
                 <StyledLink to="../">Home</StyledLink>
                 <StyledLink to="">Return</StyledLink>
-                <StyledLink to="login">Log In</StyledLink>
+                {!isLoggedIn && <StyledLink to="login">Log In</StyledLink>}
+                {isLoggedIn && <StyledLink to="" onClick={() => logout()}>Log Out</StyledLink>}
                 <StyledLink to="create-post">Create Post</StyledLink>
             </Selections>
         </NavbarDiv>

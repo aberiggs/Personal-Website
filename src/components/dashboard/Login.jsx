@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
-import api from '../../api'
-import JsonWebTokenAuth from '../../api/JsonWebTokenAuth'
-
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
-import { Link } from 'react-router-dom'
+import api from '../../api'
+import fetchUserAuth from '../../redux/user/fetchUserAuth'
+
+
+
 
 const Title = styled.h1.attrs({
     className: 'h1',
@@ -40,38 +43,20 @@ const StyledLink = styled(Link)`
 `
 
 
-class Login extends Component {
-    constructor(props) {
-        super(props)
+const Login = () => {
+    const[username, setUsername] = useState('')
+    const[password, setPassword] = useState('')
 
-        this.state = {
-            username: '',
-            password: '',
-            userExistence: false,
-        }
-    }
+    const dispatch = useDispatch()
 
-    handleChangeInputUsername = async event => {
-        const username = event.target.value
-        this.setState({ username })
-    }
-
-    handleChangeInputPassword = async event => {
-        const password = event.target.value
-        this.setState({ password })
-    }
-
-    handleLoginUser = async () => {
-        const { username, password } = this.state
+    const handleLoginUser = async () => {
         const payload = { username, password }
 
         await api.loginUser(payload).then( res => {
-            this.setState({
-                username: '',
-                password: '',
-            })
+            setUsername("")
+            setPassword("")
             localStorage.setItem("token", JSON.stringify(res.data.token))
-
+            dispatch(fetchUserAuth(res.data.token))
         }).catch(res => {
             if (res.response.status === 404) {
                 window.alert(`A user with that username doesn't exist yet!`)
@@ -80,32 +65,29 @@ class Login extends Component {
 
     }
 
-    render() {
-        const { username, password } = this.state
-        return (
-            <Wrapper>
-                <Title>Log In</Title>
+    return (
+        <Wrapper>
+            <Title>Log In</Title>
 
-                <Label>Username: </Label>
-                <InputText
-                    type="text"
-                    value={username}
-                    onChange={this.handleChangeInputUsername}
-                />
+            <Label>Username: </Label>
+            <InputText
+                type="text"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+            />
 
-                <Label>Password: </Label>
-                <InputText
-                    type="text"
-                    value={password}
-                    onChange={this.handleChangeInputPassword}
-                />
+            <Label>Password: </Label>
+            <InputText
+                type="text"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+            />
 
-                <Button onClick={this.handleLoginUser}>Login</Button>
-                <Button onClick={JsonWebTokenAuth}>Auth Test</Button>
-                <p>Don't have an account? <StyledLink to="../signup">Sign up here!</StyledLink></p>
-            </Wrapper>
-        )
-    }
+            <Button onClick={() => handleLoginUser()}>Login</Button>
+            <p>Don't have an account? <StyledLink to="../signup">Sign up here!</StyledLink></p>
+        </Wrapper>
+    )
+    
 }
 
 export default Login;

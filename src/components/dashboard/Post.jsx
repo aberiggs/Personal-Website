@@ -1,5 +1,3 @@
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import styled from 'styled-components'
 import api from '../../api'
 import { useNavigate } from "react-router-dom";
@@ -43,7 +41,6 @@ const PostBody = styled.div`
 
 const Post = () => {
     const navigate = useNavigate();
-    const [value] = useState('');
     const [markdown, setMarkdown] = useState("")
     
 
