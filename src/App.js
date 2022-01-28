@@ -7,6 +7,7 @@ import {
 
 import { UserProvider } from "./components/frontPage/UserContext";
 
+
 import FrontPage from "./components/FrontPage.js";
 import Dashboard from "./components/Dashboard";
 
@@ -14,11 +15,9 @@ export default function App() {
   return (
     <Router>
       <Routes>
-
         <Route exact path="/" element={<UserProvider><FrontPage /></UserProvider>} />
         <Route path="/devblog/*" element={<Dashboard/>} />
         <Route path="*" element={<Error404 />} />
-
       </Routes>
     </Router>
   )

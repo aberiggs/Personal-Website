@@ -28,7 +28,6 @@ function Dashboard() {
             <div>
                 <Navbar/>
                 <Routes>
-
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/create-post" element={<MarkdownEditor mode={"create"} />} />

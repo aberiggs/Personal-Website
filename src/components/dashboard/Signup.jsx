@@ -5,58 +5,27 @@ import styled from 'styled-components'
 import api from '../../api'
 import fetchUserAuth from '../../redux/user/fetchUserAuth'
 
-const Title = styled.h1.attrs({
-    className: 'h1',
-})``
-
-const Wrapper = styled.div.attrs({
-    className: 'form-group',
-})`
-    margin: 0 30px;
-`
-
-const Label = styled.label`
-    margin: 5px;
-`
-
-const InputText = styled.input.attrs({
-    className: 'form-control',
-})`
-    margin: 5px;
-`
-
-const Button = styled.button.attrs({
-    className: `btn btn-primary`,
-})`
-    margin: 15px 15px 15px 5px;
-`
-
 const Signup = () => {
     const[username, setUsername] = useState('')
     const[password, setPassword] = useState('')
+    const[confirmedPassword, setConfirmedPassword] = useState('')
+    const[errorMessage, setErrorMessage] = useState('')
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        async function checkUsername() {
-            if (document.getElementById("create-account-button") != null) {
-                await api.checkUserExistenceByUsername(username).then( () => {
-                    document.getElementById("create-account-button").disabled = true;
-                }).catch(res => {
-                    if (res.response.status === 404) {
-                        document.getElementById("create-account-button").disabled = false;
-                    }
-                })
-            }
-        }
-        checkUsername()
-    }, [username])
-
     const handleCreateUser = async () => {
+        if (username == '' || password == '') {
+            setErrorMessage("You must create a username and password!")
+            return
+        } else if (password != confirmedPassword) {
+            setErrorMessage("Confirmed password is not the same as password!")
+            return
+        }
+
         const payload = { username, password }
 
-        api.checkUserExistenceByUsername(username).then( () => {
-            window.alert(`Account not created, nice try ;)`)
+        await api.checkUserExistenceByUsername(username).then( () => {
+            setErrorMessage('A user with that username already exists!')
         }).catch(res => {
             if (res.response.status === 404) {
                 createUser(payload)
@@ -67,48 +36,57 @@ const Signup = () => {
 
     const createUser = async payload => {
         await api.createUser(payload).then(res => {
-            window.alert(`Account created successfully`)
-
             localStorage.setItem("token", JSON.stringify(res.data.token))
             dispatch(fetchUserAuth(res.data.token))
             setUsername("")
             setPassword("")
+            setConfirmedPassword("")
         }).catch((error) => {
-            window.alert(error)
+            setErrorMessage("There was an error creating the account!")
         })
-    }
-
-    const handleCheckUser = async () => {
-        await api.checkUserExistenceByUsername(this.state.username).then( res => {
-            window.alert('A user with that username exists!')
-        }).catch(res => {
-            if (res.response.status === 404) {
-                window.alert(`A user with that username doesn't exist yet!`)
-            }
-        })
-
     }
 
     return (
-        <Wrapper>
-            <Title>Create Account</Title>
+        <div class="flex flex-col justify-center items-center px-20">
+            <h1 class="text-stone-300 text-2xl">Sign up</h1>
 
-            <Label>Username: </Label>
-            <InputText
-                type="text"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-            />
+            <div class="flex p-4 text-lg">
+                <input class="shadow appearance-none border border-red rounded w-full px-2 text-grey-darker"
+                    type="text"
+                    value={username}
+                    placeholder="username"
+                    onChange={e => setUsername(e.target.value)}
+                />
+            </div>
 
-            <Label>Password: </Label>
-            <InputText
-                type="text"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-            />
+            <div class="flex p-4 text-lg">
 
-            <Button id="create-account-button" onClick={() => handleCreateUser()}>Add User</Button>
-        </Wrapper>
+                <input class="shadow appearance-none border border-red rounded w-full px-2 text-grey-darker"
+                    type="password"
+                    value={password}
+                    placeholder="password"
+                    onChange={e => setPassword(e.target.value)}
+                />
+            </div>
+
+            <div class="flex p-4 text-lg">
+
+                <input class="shadow appearance-none border border-red rounded w-full px-2 text-grey-darker"
+                    type="password"
+                    value={confirmedPassword}
+                    placeholder="confirm password"
+                    onChange={e => setConfirmedPassword(e.target.value)}
+                />
+            </div>
+
+            <div class="flex w-64 text-center justify-center">
+                <a class="text-red-400 break-words">{errorMessage}</a>
+            </div>
+
+            <div class="flex p-4">
+                <button class="bg-stone-700 hover:bg-stone-100 text-stone-300 font-bold py-2 px-4 rounded" onClick={() => handleCreateUser()}>Signup</button>
+            </div>
+        </div>
     )
 }
 
