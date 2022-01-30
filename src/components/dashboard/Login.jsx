@@ -58,7 +58,7 @@ const Login = () => {
                 />
             </div>
             <div class="flex w-64 text-center justify-center">
-                <a class="text-red-400 break-words">{errorMessage}</a>
+                <p class="text-red-400 break-words">{errorMessage}</p>
             </div>
             <div class="flex p-4">
                 <button class="bg-stone-700 hover:bg-stone-100 text-stone-300 font-bold py-2 px-4 rounded" onClick={() => handleLoginUser()}>Login</button>

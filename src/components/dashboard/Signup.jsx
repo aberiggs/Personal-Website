@@ -80,7 +80,7 @@ const Signup = () => {
             </div>
 
             <div class="flex w-64 text-center justify-center">
-                <a class="text-red-400 break-words">{errorMessage}</a>
+                <p class="text-red-400 break-words">{errorMessage}</p>
             </div>
 
             <div class="flex p-4">
