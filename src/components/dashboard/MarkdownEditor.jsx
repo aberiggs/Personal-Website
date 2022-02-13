@@ -7,31 +7,6 @@ import api from '../../api'
 import MarkdownDisplay from './MarkdownDisplay'
 
 
-const MainDiv = styled.div`
-    display: flex;
-    flex-direction: row;
-`
-
-const EditingSide = styled.div`
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-`
-
-const PostDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: white;
-    font-size: 20px;
-    width: 100%;
-    margin: 5vmin;
-    padding: 5vmin;
-`
-
 const MarkdownEditor = props => {
     const [postName, setPostName] = useState("")
     const [postSummary, setPostSummary ] = useState("")
@@ -39,20 +14,33 @@ const MarkdownEditor = props => {
 
     //TODO: Char limit for title and whatnot
     return (
-        <MainDiv>
-            <EditingSide>
-                <h1>Create Post!</h1>
-                <p>Title:<input type="text" onChange={e => setPostName(e.target.value)}/></p>
-                <textarea onChange={e => setPostSummary(e.target.value)} cols="50" rows="5" />
-                <textarea onChange={e => setMarkdown(e.target.value)} cols="50" rows="10" />
-                { (props.mode === "create") && <CreatePostButton post={{postName: postName, postSummary: postSummary, markdown: markdown}} /> }
-                { (props.mode === "edit") && <EditPostButton post={{postName: postName, postSummary: postSummary, markdown: markdown}} /> }
-            </EditingSide>
-        
-            <PostDiv>
-                <MarkdownDisplay postName={postName} markdown={markdown}/>
-            </PostDiv>
-        </MainDiv>
+        <div class="flex w-full flex-col justify-center items-center">
+             { (props.mode === "create") && <h1 class="text-zinc-100 text-8xl pb-8">Create Post</h1> }
+             { (props.mode === "edit") && <h1 class="text-zinc-100 text-8xl pb-8">Edit Post</h1> }
+            <div class="flex flex-row w-full py-5">
+                <div class="flex flex-col items-center w-6/12 px-8">
+                    <div class="flex flex-col justify-center items-center w-9/12 px-4 mx-5">
+                        <h2 class="text-zinc-100 text-4xl px-8 py-5">Post Title</h2>
+                        <input type="text" class="w-7/12 text-center p-3 bg-zinc-100/30 text-zinc-100 rounded-md " onChange={e => setPostName(e.target.value)}/>
+                        <div class="flex-grow border border-dashed border-zinc-50 w-full my-8"></div>
+                        <h2 class="text-zinc-100 text-4xl px-8 py-5">Post Summary</h2>
+                        <textarea class="w-8/12 h-22 p-3 bg-zinc-100/30 text-zinc-100 rounded-md" onChange={e => setPostSummary(e.target.value)}  />
+                        <div class="flex-grow border border-dashed border-zinc-50 w-full my-8"></div>
+                        <h2 class="text-zinc-100 text-4xl px-8 py-5">Post Body</h2>
+                        <textarea class="w-11/12 h-52 p-3 bg-zinc-100/30 text-zinc-100 rounded-md" onChange={e => setMarkdown(e.target.value)} />
+                        <div class="flex-grow border border-dashed border-zinc-50 w-full my-8"></div>
+                        { (props.mode === "create") && <CreatePostButton post={{postName: postName, postSummary: postSummary, markdown: markdown}} /> }
+                        { (props.mode === "edit") && <EditPostButton post={{postName: postName, postSummary: postSummary, markdown: markdown}} /> }
+                    </div>
+                </div>
+            
+                <div class="flex flex-col items-center w-6/12 px-8">
+                    <div class="w-full bg-zinc-100 px-4 mx-5 h-full rounded-xl">
+                        <MarkdownDisplay postName={postName} markdown={markdown}/>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
@@ -77,7 +65,7 @@ const CreatePostButton = props => {
     
     return (
         <div>
-            <button onClick={CreatePost}>Create Post</button>
+            <button class="bg-zinc-900 hover:text-zinc-800 text-zinc-100 text-xl px-4 py-2 rounded-full" onClick={CreatePost}>Create Post</button>
         </div>
     )
 }

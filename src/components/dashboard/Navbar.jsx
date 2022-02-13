@@ -65,8 +65,7 @@ function Navbar () {
 
 
     return (
-        <div>
-
+        <div class="mb-20">
             <div class="flex h-20 justify-center w-full">
                 <ul class="flex bg-zinc-900 w-11/12 items-center rounded-b-2xl">
                     <div class="flex justify-start w-3/12">

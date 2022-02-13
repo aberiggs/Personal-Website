@@ -21,8 +21,8 @@ const Home = () => {
     }
     
     return(
-        <div class="flex items-center flex-col w-full py-10">
-            <h class="text-8xl text-zinc-50 py-4">
+        <div class="flex items-center flex-col w-full">
+            <h class="text-8xl text-zinc-50">
                Posts
             </h>
             <div class="flex items-center flex-col w-full">
