@@ -25,7 +25,7 @@ function Dashboard() {
 
     return (
         <Provider store={store}>
-            <div>
+            <div class="bg-zinc-800 min-h-screen">
                 <Navbar/>
                 <Routes>
                     <Route path="/signup" element={<Signup />} />

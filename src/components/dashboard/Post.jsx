@@ -7,38 +7,6 @@ import { useParams } from 'react-router-dom';
 
 import MarkdownDisplay from './MarkdownDisplay';
 
-const Background = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: black;
-`
-
-const PostDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: white;
-    font-size: 20px;
-    width: 60%;
-    margin: 5vmin;
-    padding: 5vmin;
-`
-
-const PostTitle = styled.h1`
-    text-decoration: underline;
-    font-size: 10vmin;
-    margin: 0;
-    padding: 0;
-`
-
-const PostBody = styled.div`
-    font-size: 2vmin;
-    width: 100%;
-`
-
 const Post = () => {
     const navigate = useNavigate();
     const [markdown, setMarkdown] = useState("")
@@ -62,11 +30,11 @@ const Post = () => {
     
     if (markdown !== ""){
         return(
-            <Background>
-                <PostDiv>
+            <div class="flex w-full justify-center items-center">
+                <div class="flex justify-center items-center flex-col bg-zinc-100 w-7/12 m-6 p-16 rounded-xl">
                     <MarkdownDisplay postName={params.postName} markdown={markdown} />
-                </PostDiv>
-            </Background>
+                </div>
+            </div>
         )
     } else {
         return null;

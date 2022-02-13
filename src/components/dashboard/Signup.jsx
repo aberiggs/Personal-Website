@@ -14,10 +14,13 @@ const Signup = () => {
     const dispatch = useDispatch()
 
     const handleCreateUser = async () => {
-        if (username == '' || password == '') {
+        if (username === '' || password === '') {
             setErrorMessage("You must create a username and password!")
             return
-        } else if (password != confirmedPassword) {
+        } else if (password.length < 5) {
+            setErrorMessage("Password needs to be longer than 5 characters!")
+            return
+        } else if (password !== confirmedPassword) {
             setErrorMessage("Confirmed password is not the same as password!")
             return
         }

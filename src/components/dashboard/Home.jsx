@@ -20,24 +20,16 @@ const Home = () => {
         })
     }
     
-    const PostList = styled.div`
-        display: flex;        
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-    `
-
-
     return(
-        <div>
-            <h1>
-               Posts: 
-            </h1>
-            <PostList>
+        <div class="flex items-center flex-col w-full py-10">
+            <h class="text-8xl text-zinc-50 py-4">
+               Posts
+            </h>
+            <div class="flex items-center flex-col w-full">
             {posts.map((item, index) => {
                 return <PostPreview key={index} post={item} />
             })}
-            </PostList>
+            </div>
             
             
         </div>
@@ -48,50 +40,14 @@ const PostPreview = (props) => {
     const postName = props.post.postName
     const postSummary = props.post.postSummary
 
-    const PreviewDiv = styled.div`
-        display: flex;
-        flex-direction: column;
-        border: solid;
-        border-width: .4vmin;
-        border-color: black;
-        border-radius: 1vmin;
-        width: 60%;
-        margin: 2vmin;
-        
-    `
-
-    const Post = styled(Link)`
-        text-decoration: none;
-        color: black;
-        font-size: 5vmin;
-        
-        padding: 1vmin;
-        margin: 1vmin;
-
-        &:hover .post-name{
-            text-decoration: underline;
-        }
-    `
-
-    const PostName = styled.p.attrs({
-        className: 'post-name',
-    })`
-        margin: 0;
-        padding: 0;
-    `
-
-    const PostSummary = styled.p`
-        font-size: 2vmin;
-    `
-
     return(
-        <PreviewDiv>
-            <Post to={"post/" + postName}>
-                <PostName>{postName}</PostName>
-                <PostSummary>{postSummary}</PostSummary>
-            </Post>
+        <div class="flex flex-col w-7/12 border-[6px] border-zinc-900 m-6 rounded-2xl">
+            <Link class="text-zinc-50 group p-6" to={"post/" + postName}>
+                <p class="text-6xl group-hover:overline pb-8 decoration-4">{postName}</p>
+                <p class="text-2xl">{postSummary}</p>
+            </Link>
             
-        </PreviewDiv>
+        </div>
     )
 }
 

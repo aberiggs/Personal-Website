@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import api from '../../api'
 
-import PostPreview from './MarkdownDisplay'
+import MarkdownDisplay from './MarkdownDisplay'
 
 
 const MainDiv = styled.div`
@@ -50,7 +50,7 @@ const MarkdownEditor = props => {
             </EditingSide>
         
             <PostDiv>
-                <PostPreview postName={postName} markdown={markdown}/>
+                <MarkdownDisplay postName={postName} markdown={markdown}/>
             </PostDiv>
         </MainDiv>
     )

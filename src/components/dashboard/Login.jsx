@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import styled from 'styled-components'
-
-import { AiOutlineUser } from "react-icons/ai";
-import { MdPassword } from "react-icons/md"
 
 import api from '../../api'
 import fetchUserAuth from '../../redux/user/fetchUserAuth'
@@ -37,7 +32,7 @@ const Login = () => {
 
     return (
         <div class="flex flex-col justify-center items-center px-20">
-            <h1 class="text-stone-300 text-2xl">Log In</h1>
+            <h1 class="text-zinc-300 text-2xl">Log In</h1>
 
             <div class="flex p-4 text-lg">
                 <input class="shadow appearance-none border border-red rounded w-full px-2 text-grey-darker"
@@ -61,7 +56,7 @@ const Login = () => {
                 <p class="text-red-400 break-words">{errorMessage}</p>
             </div>
             <div class="flex p-4">
-                <button class="bg-stone-700 hover:bg-stone-100 text-stone-300 font-bold py-2 px-4 rounded" onClick={() => handleLoginUser()}>Login</button>
+                <button class="bg-zinc-800 hover:bg-zinc-100 text-zinc-300 font-bold py-2 px-4 rounded" onClick={() => handleLoginUser()}>Login</button>
             </div>
         </div>
     )
