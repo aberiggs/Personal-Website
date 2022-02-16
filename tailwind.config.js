@@ -4,7 +4,11 @@ module.exports = {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Quicksand']
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

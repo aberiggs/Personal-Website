@@ -12,6 +12,8 @@ export const checkUserExistenceByUsername = username => api.get(`/user/${usernam
 export const getMarkdownFromPostName = postName => api.get(`/post/${postName}`)
 export const getPosts = () => api.get(`/posts`)
 export const createPost = payload => api.post(`/post`, payload) 
+export const editPost = payload => api.put(`/post/update`, payload) 
+export const deletePost = payload => api.put(`/post/delete`, payload) 
 
 const apis = {
     createUser,
@@ -20,7 +22,9 @@ const apis = {
     checkUserExistenceByUsername,
     getMarkdownFromPostName,
     getPosts,
-    createPost
+    createPost,
+    editPost,
+    deletePost
 }
 
 export default apis

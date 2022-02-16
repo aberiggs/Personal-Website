@@ -12,6 +12,7 @@ import Login from './dashboard/Login'
 import Post from './dashboard/Post'
 import Home from './dashboard/Home'
 import MarkdownEditor from './dashboard/MarkdownEditor'
+import Error404 from './dashboard/Error404'
 
 function Dashboard() {
 
@@ -32,6 +33,7 @@ function Dashboard() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/create-post" element={<MarkdownEditor mode={"create"} />} />
                     <Route path="/post/:postName" element={<Post />} />
+                    <Route path="/post/:postName/edit" element={<MarkdownEditor mode={"edit"}/>} />
                     <Route path="/" element={<Home />} />
                     <Route path="*" element={<Error404 />} />
 
@@ -41,8 +43,5 @@ function Dashboard() {
     );
 }
 
-function Error404() {
-    return <h2>Error 404, page not found.</h2>
-  }
 
 export default Dashboard;
