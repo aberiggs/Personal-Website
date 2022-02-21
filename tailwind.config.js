@@ -6,10 +6,27 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Quicksand']
+        'sans': ['Quicksand'],
+        'dosis': ['Dosis'],
+        'space-grotesk' : ['Space Grotesk']
+      },
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'home': {
+          400: "#FAF6E9",
+          500: "#ECE8D9",
+          800: "#494949",
+          900: "#313131"
+        }
+      },
+      fontSize: {
+        'massive': '12rem'
       }
     },
   },
+
+
   plugins: [
     require('@tailwindcss/typography'),
   ],
