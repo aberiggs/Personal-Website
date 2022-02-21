@@ -1,6 +1,8 @@
 import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {nord} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import remarkGfm from 'remark-gfm'
+import remarkBreaks from 'remark-breaks'
 
 
 const MarkdownDisplay = (props) => {
@@ -13,10 +15,11 @@ const MarkdownDisplay = (props) => {
                 <h class="text-8xl text-zinc-900 break-all text-center">{props.postName}</h>
             </div>
             
-            <div className="prose lg:prose-xl max-w-prose w-full break-all prose-pre:bg-transparent">
+            <div className="prose lg:prose-xl max-w-prose w-full break-normal prose-pre:bg-transparent">
                 
                 <ReactMarkdown
                     children={props.markdown}
+                    remarkPlugins={[[remarkGfm],[remarkBreaks]]}
                     components={{
                     code({node, inline, className, children, ...props}) {
                         const match = /language-(\w+)/.exec(className || '')
