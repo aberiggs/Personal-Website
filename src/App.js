@@ -1,30 +1,24 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from "react-router-dom";
 
 import { UserProvider } from "./components/frontPage/UserContext";
 
+
 import FrontPage from "./components/FrontPage.js";
+import Dashboard from "./components/Dashboard";
 
 export default function App() {
   return (
     <Router>
-      <Switch>
-
-        <Route exact path="/">
-          <UserProvider>
-            <FrontPage />
-          </UserProvider>
-          </Route>
-
-          <Route path="*">
-            <Error404 />
-          </Route>
-
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<UserProvider><FrontPage /></UserProvider>} />
+        <Route path="/devblog/*" element={<Dashboard/>} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
     </Router>
   )
 }
