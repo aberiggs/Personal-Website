@@ -9,6 +9,7 @@ import Home from "./frontPage/Home.js";
 import About from "./frontPage/About.js";
 import SiteAbout from "./frontPage/SiteAbout.js";
 import Skills from "./frontPage/Skills.js";
+import Navbar from "./frontPage/Navbar"
 
 import "./FrontPage.css";
 import Bottom from './frontPage/Bottom';
@@ -29,8 +30,9 @@ function FrontPage() {
 
 
     return(
-        <PrimaryDiv>
-            <div>
+        <div className="flex flex-row h-screen relative">
+            <Navbar/>
+            <div className="min-w-11/12 overflow-auto">
                 <Home />
 
                 <About />
@@ -39,7 +41,7 @@ function FrontPage() {
                 <Bottom />
             </div>
             
-        </PrimaryDiv>
+        </div>
 
 
     );

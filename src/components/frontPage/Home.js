@@ -15,16 +15,6 @@ import { useState, useEffect } from 'react';
 function Home() {
   const [showModal, setShowModal] = useState(false)
 
-  // TODO: Make it so I'm not forced to stop rendering the rest of the page.
-  useEffect(() => { 
-    if(showModal) {
-        // TODO: Make it so if you click the contact button it doesn't keep scrolling.
-        document.documentElement.style.overflow = "hidden";
-    } else { 
-        document.documentElement.style.overflow = "unset";
-        }
-        }, [showModal]);
-
 
   const Modal = () => {
     return(
@@ -32,10 +22,10 @@ function Home() {
             <div onClick={() => setShowModal(!showModal)} className="h-screen w-full bg-black/60 absolute">
   
             </div>
-            <div className="flex flex-col absolute bg-home-500 rounded-3xl outline outline-4 outline-home-800">
+            <div className="flex flex-col absolute bg-home-500 rounded-3xl ">
                 
                     
-                <button class="select-none absolute bg-red-500 hover:bg-red-300 text-white font-bold w-10 h-10 border-home-800  border-4 border-l-0 border-t-0 rounded-tl-3xl rounded-br-3xl m-0 p-0" onClick={() => setShowModal(!showModal)}>X</button>
+                <button class="select-none absolute bg-red-500 hover:bg-red-300 text-white font-bold w-10 h-10 rounded-tl-2xl rounded-br-3xl m-0 p-0" onClick={() => setShowModal(!showModal)}>X</button>
                     
                 <div className="flex flex-col p-10 w-full items-center">
                   <h1 className="font-space-grotesk text-5xl text-home-800 mx-16 my-2">School Email</h1>
@@ -59,6 +49,8 @@ function Home() {
     <div class="flex flex-col bg-home-500 h-screen w-100 justify-center items-center">
         { showModal && <Modal /> }
         <div class="flex flex-col justify-center align-center">
+          <div className="flex justify-center align-center">
+          </div>
           <h class="text-massive font-medium text-home-800 font-space-grotesk m-0 p-0 text-center">Abe Riggs IV</h>
 
           <h2 class="text-5xl text-home-900 font-space-grotesk m-2 text-center">
