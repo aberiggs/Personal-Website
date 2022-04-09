@@ -1,8 +1,6 @@
 import NodeLogo from "./images/Node_logo.svg";
 import ReactLogo from "./images/React_logo.svg";
 
-import "./SiteAbout.css"
-
 
 const AboutParagraph = () => {
     return (

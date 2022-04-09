@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { useContext } from 'react';
 import { UserContext } from "./UserContext"
 
-import "./Home.css"
-
 import { RiGithubFill } from 'react-icons/ri';
 import { IoLogoLinkedin } from 'react-icons/io';
 import { MdOutlineContactPage } from 'react-icons/md';
@@ -30,7 +28,7 @@ function Home() {
                 <div className="flex flex-col p-10 w-full items-center">
                   <h1 className="font-space-grotesk text-5xl text-home-800 mx-16 my-2">School Email</h1>
                   <h2 className="font-space-grotesk text-3xl text-home-800 mx-24 my-2">riggs22@purdue.edu</h2>
-                  <div className="border-2 border-home-800 w-full mt-2 border-dashed"></div>
+                  
                   <h1 className="font-space-grotesk text-5xl text-home-800 mx-16 my-2">Personal Email</h1>
                   <h2 className="font-space-grotesk text-3xl text-home-800 mx-24 my-2">aberiggsiv@gmail.com</h2>
                 </div>

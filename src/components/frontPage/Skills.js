@@ -1,5 +1,3 @@
-import "./Skills.css";
-
 function Skills() {
     return (
         <section className="Skills">
