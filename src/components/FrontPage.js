@@ -40,16 +40,22 @@ function FrontPage() {
             <div className="invisible w-0 md:visible md:w-auto">
                 <Navbar/>
             </div>
-            <div onScroll={handleScroll} id="main"className="w-full overflow-auto">
-                <section id="home">
-                    <Home />
-                </section>
-                <section id="about">
-                    <About/>
-                </section>
-                <section id="site">
-                    <SiteAbout />
-                </section>
+            <div onScroll={handleScroll} id="main"className="w-full overflow-auto divide-y divide-home-800">
+                <div>
+                    <section id="home">
+                        <Home />
+                    </section>
+                    <div className="bg-home-500 pb-20">
+                        <section id="about">
+                            <About/>
+                        </section>
+                        <section id="site">
+                            <SiteAbout />
+                        </section>
+                    </div>
+                </div>
+
+                
                 <Bottom />
                
             </div>
