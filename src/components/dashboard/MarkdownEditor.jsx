@@ -28,7 +28,6 @@ const MarkdownEditor = props => {
         await api.getMarkdownFromPostName(params.postName).then(res => {
             setMarkdown(String(res.data.fileContent))
             setPostSummary(String(res.data.postSummary))
-            console.log("Shitters")
         }).catch(res => {
             navigate("../*")
         })
@@ -110,7 +109,6 @@ const EditPostButton = props => {
     }
     
     const DeletePost = async () => {
-        console.log("Cringe")
         const token = JSON.parse(localStorage.getItem('token'))
         console.log({...props.post, token})
         await api.deletePost({...props.post, token}).then(() => {
