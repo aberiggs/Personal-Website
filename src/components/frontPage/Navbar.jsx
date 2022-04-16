@@ -12,7 +12,7 @@ function Navbar() {
                 <HashLink smooth to="#about" className="py-3 hover:text-home-400">whoami</HashLink>
                 <HashLink smooth to="#site" className="py-3 hover:text-home-400">README.MD</HashLink>   
                 <div className="border-[1px] lg:border-[1.5px] border-home-500 bg-home-500"></div>
-                <HashLink smooth to="" className="py-3 hover:text-home-400">Coursework</HashLink>
+                <HashLink smooth to="#coursework" className="py-3 hover:text-home-400">Coursework</HashLink>
                 <HashLink smooth to="" className="py-3 hover:text-home-400">Skills</HashLink>
                 <HashLink smooth to="" className="py-3 hover:text-home-400">Projects</HashLink>
             </div>

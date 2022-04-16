@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Home from "./frontPage/Home.js";
 import About from "./frontPage/About.js";
 import SiteAbout from "./frontPage/SiteAbout.js";
+import Coursework from './frontPage/Coursework.jsx';
 import Skills from "./frontPage/Skills.js";
 import Navbar from "./frontPage/Navbar"
 
@@ -51,6 +52,9 @@ function FrontPage() {
                         </section>
                         <section id="site">
                             <SiteAbout />
+                        </section>
+                        <section id="coursework">
+                            <Coursework />
                         </section>
                     </div>
                 </div>
