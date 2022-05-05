@@ -30,7 +30,7 @@ const AboutParagraph = () => {
     return (
         // TODO: Make better intro paragraph.
         <p>
-            Hey, I'm Abe, but my friends know me as Sprocket! I'm an aspriring software engineer from Seattle, Washington, currently majoring in Computer Science at Purdue University and am {age} years old. When I was young my parents exposed me to videogames, which sparked my love for technology. Games are something that have brought me joy in times of stress, and also allow me to just hang out with friends whenever I want to no matter how far away. When I do finally get a break from my studies, I enjoy hopping on a call with my friends to play some games, watching anime, and playing guitar among other things.
+            Hey, I'm Abe, but my friends know me as Sprocket! I'm an aspiring software engineer from Seattle, Washington, currently majoring in Computer Science at Purdue University and am {age} years old. When I was young my parents exposed me to videogames, which sparked my love for technology. Games are something that have brought me joy in times of stress, and also allow me to just hang out with friends whenever I want to no matter how far away. When I do finally get a break from my studies, I enjoy hopping on a call with my friends to play some games, watching anime, and playing guitar among other things.
         </p>
     );
 } 
