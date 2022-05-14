@@ -3,37 +3,37 @@ import {useState, useEffect} from 'react';
 const CS180 = {
     code:'CS180',
     name:'Introduction to Object Oriented Programming',
-    info: 'This is a bit about my time in CS180!'
+    info: 'Learned Java, covering topics such as looping, class structuring and inhertiance, multi-threading, and hashmaps.'
 }
 
 const CS193 = {
     code:'CS193',
     name:'Computer Science Tools',
-    info: 'This is a bit about my time in CS193!'
+    info: 'Introduction to using the command line, Git, GitHub, debugging tools, and more.'
 }
 
 const CS182 = {
     code:'CS182',
     name:'Foundations of Computer Science',
-    info: 'This is a bit about my time in CS182!'
+    info: 'Discrete math course including boolean algebra, introductory algorithm analysis, recursion, proof techniques.'
 }
 
 const CS240 = {
     code:'CS240',
     name:'Programming in C',
-    info: 'This is a bit about my time in CS240!'
+    info: 'Learned about file I/O, structures, pointers, dynamic memory allocation, linked lists, trees, GDB, memory layout, the C preprocessor, buffer overflow vulnerabilities, and much more.'
 }
 
 function Coursework() {
 
     return(
         <div className="flex flex-row justify-center items-center min-h-screen bg-home-500 px-4">
-            <div className="flex flex-row flex-wrap justify-center items-center xl:w-full">
-                <div >
+            <div className="flex flex-col flex-wrap justify-center items-center xl:w-full">
+                <div className='flex flex-row'>
                 <CourseListing course={CS180}/>
                 <CourseListing course={CS193} />
                 </div>
-                <div >      
+                <div className='flex flex-row'>      
                 <CourseListing course={CS182}/>
                 <CourseListing course={CS240}/>
                 </div>
@@ -49,15 +49,16 @@ const CourseListing = (props) => {
 
     const FrontCard = () => {
         return(
-            <div className="text-center">
-                {props.course.code}
+            <div className="text-center justify-center h-full w-9/12 md:w-9/12 xl:w-7/12 py-5 md:py-8 xl:py-11">
+                <div className='text-xl md:text-2xl xl:text-4xl underline underline-offset-2'>{props.course.code}</div>
+                <div className='text-xs md:text-base xl:text-xl pt-1 xl:pt-3'>{props.course.name}</div>
             </div>
         )
     }
 
     const BackCard = () => {
         return(
-            <div className="text-center">
+            <div className="text-center text-[.6rem] md:text-xs xl:text-base w-9/12 md:w-9/12 xl:w-7/12">
                 {props.course.info}
             </div>
         )
@@ -70,7 +71,7 @@ const CourseListing = (props) => {
     return(
         <div>
             <div className="bg-home-400 rounded-xl xl:rounded-3xl w-32 md:w-40 xl:w-72 h-52 md:h-60 xl:h-80 m-5 md:m-10 xl:m-20 justify-center items-center select-none">
-                <div onClick={handleClick} className="md:rounded-xl xl:rounded-3xl hover:bg-home-800/10 hover:cursor-pointer w-full h-full">
+                <div onClick={handleClick} className="rounded-xl xl:rounded-3xl hover:bg-home-800/10 text-home-800 hover:cursor-pointer w-full h-full flex items-center justify-center">
                     {showFront ? <FrontCard /> : <BackCard /> } 
                 </div>
             </div>
