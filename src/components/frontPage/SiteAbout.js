@@ -19,7 +19,7 @@ const AboutParagraph = () => {
 
 function SiteAbout() {
     return(
-        <div className="flex flex-col justify-center items-center min-h-screen bg-home-500 px-4">
+        <div className="flex flex-col justify-center items-center min-h-screen bg-home-500 px-4 py-10">
             <div className="w-11/12 md:w-4/5 lg:w-9/12 xl:w-3/5">
                 <h1 className="text-home-800 font-medium text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-space-grotesk text-left pb-5 md:pb-8">aberiggsiv.dev</h1>
                 <p className="font-doris text-home-800 text-lg md:text-xl lg:text-2xl 2xl:text-3xl">

@@ -27,7 +27,8 @@ const CS240 = {
 function Coursework() {
 
     return(
-        <div className="flex flex-row justify-center items-center min-h-screen bg-home-500 px-4">
+        <div className="flex flex-col justify-center items-center min-h-screen bg-home-500 px-4 py-10">
+            <h1 className="text-home-800 font-medium text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-space-grotesk text-left">Courses</h1>
             <div className="flex flex-col flex-wrap justify-center items-center xl:w-full">
                 <div className='flex flex-row'>
                 <CourseListing course={CS180}/>
@@ -70,7 +71,7 @@ const CourseListing = (props) => {
 
     return(
         <div>
-            <div className="bg-home-400 rounded-xl xl:rounded-3xl w-32 md:w-40 xl:w-72 h-52 md:h-60 xl:h-80 m-5 md:m-10 xl:m-20 justify-center items-center select-none">
+            <div className="bg-home-400 rounded-xl xl:rounded-3xl w-32 md:w-40 xl:w-72 h-40 md:h-52 xl:h-80 m-5 md:m-10 xl:m-20 justify-center items-center select-none">
                 <div onClick={handleClick} className="rounded-xl xl:rounded-3xl hover:bg-home-800/10 text-home-800 hover:cursor-pointer w-full h-full flex items-center justify-center">
                     {showFront ? <FrontCard /> : <BackCard /> } 
                 </div>

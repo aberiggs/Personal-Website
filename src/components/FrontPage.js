@@ -42,7 +42,7 @@ function FrontPage() {
                 <Navbar/>
             </div>
             <div onScroll={handleScroll} id="main"className="w-full overflow-auto divide-y divide-home-800">
-                <div>
+                <div >
                     <section id="home">
                         <Home />
                     </section>
@@ -53,6 +53,9 @@ function FrontPage() {
                         <section id="site">
                             <SiteAbout />
                         </section>
+                        <div className='flex w-full justify-center items-center'>
+                            <div className='bg-home-800 w-11/12 h-1'></div>
+                        </div>
                         <section id="coursework">
                             <Coursework />
                         </section>
