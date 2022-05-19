@@ -15,7 +15,7 @@ const CS193 = {
 const CS182 = {
     code:'CS182',
     name:'Foundations of Computer Science',
-    info: 'Discrete math course including boolean algebra, introductory algorithm analysis, recursion, proof techniques.'
+    info: 'Discrete math course including boolean algebra, introductory algorithm analysis, recursion, and proof techniques.'
 }
 
 const CS240 = {

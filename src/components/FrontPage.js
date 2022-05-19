@@ -6,7 +6,8 @@ import Home from "./frontPage/Home.js";
 import About from "./frontPage/About.js";
 import SiteAbout from "./frontPage/SiteAbout.js";
 import Coursework from './frontPage/Coursework.jsx';
-import Skills from "./frontPage/Skills.jsx";
+import Projects from './frontPage/Projects'
+
 import Navbar from "./frontPage/Navbar"
 
 import Bottom from './frontPage/Bottom';
@@ -59,8 +60,8 @@ function FrontPage() {
                         <section id="coursework">
                             <Coursework />
                         </section>
-                        <section id="skills">
-                            <Skills />
+                        <section id="projects">
+                            <Projects />
                         </section>
                     </div>
                 </div>
