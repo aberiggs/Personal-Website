@@ -3,7 +3,7 @@ import {useState} from 'react';
 const CS180 = {
     code:'CS180',
     name:'Introduction to Object Oriented Programming',
-    info: 'Learned Java, covering topics such as looping, class structuring and inhertiance, multi-threading, and hashmaps.'
+    info: 'Learned Java, covering topics such as looping, class structuring and inheritance, multi-threading, and hashmaps.'
 }
 
 const CS193 = {
@@ -15,7 +15,7 @@ const CS193 = {
 const CS182 = {
     code:'CS182',
     name:'Foundations of Computer Science',
-    info: 'Discrete math course including boolean algebra, introductory algorithm analysis, recursion, and proof techniques.'
+    info: 'Discrete math course, including boolean algebra, introductory algorithm analysis, recursion, and proof techniques.'
 }
 
 const CS240 = {
